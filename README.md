@@ -82,6 +82,8 @@ The main endpoints are:
 
 All transaction endpoints require authentication, and the dashboard aggregates your data.
 
+
+
 ## Role Behavior Explanation
 
 The roles work like this:
@@ -111,6 +113,27 @@ The dashboard takes all your transactions and adds up the amounts based on type.
 I tested this mostly through the browser using Django REST Framework's built-in UI. I'd log in as different users, switch their roles in the admin panel, and try the endpoints. For validation, I'd try posting invalid data like negative amounts and check the error messages.
 
 Permissions were trickier – I'd create test users with different roles and verify they could only do what they should. The DRF UI made it easy to test without writing full test scripts.
+
+## How to Test APIs
+
+1. Run the server using:
+   ```
+   python manage.py runserver
+   ```
+
+2. Open the browser and go to:
+   ```
+   http://127.0.0.1:8000/api/
+   ```
+
+3. Login using:
+   ```
+   http://127.0.0.1:8000/api-auth/login/
+   ```
+
+4. Test endpoints like:
+   - `/api/transactions/`
+   - `/api/dashboard/`
 
 ## Challenges Faced
 
